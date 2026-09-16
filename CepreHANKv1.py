@@ -244,7 +244,7 @@ def equations_ss(share, r, B_b, B_g, B_t, L, mu, se, sce, alpphaE, etaE, tauc, s
     piF = 0
     piFE = 0
     subv = 0
-    bouclier = (pFE - pFE_HA) * YFE + (pFE - pFE_HA) * tauc * cbar + sF * pFE * E
+    bouclier = (pFE - pFE_HA) * YFE + (pFE - pFE_HA) * (1 + tauc) * cbar + sF * pFE * E
     bouclier_Y = bouclier / Y
     bouclier_Yss = bouclier / Y
     Dep  = G + Subv + Subv1 + Subv2 + bouclier
@@ -316,7 +316,7 @@ def subsidy(pFE, subv):
 
 @ssj.simple
 def energy_policy(pFE, pFE_HA, G, Subv, Subv1, Subv2, YFE, E, cbar, tauc, sF):
-    bouclier = (pFE - pFE_HA) * YFE + (pFE - pFE_HA) * tauc * cbar + sF * pFE * E
+    bouclier = (pFE - pFE_HA) * YFE + (pFE - pFE_HA) * (1 + tauc) * cbar + sF * pFE * E
     Dep   = bouclier + G + Subv + Subv1 + Subv2
     return bouclier, Dep
 
